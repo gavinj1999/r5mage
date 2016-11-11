@@ -11,19 +11,19 @@ try {
 catch(Exception $e) {
 
 	//log the error
-	file_put_contents('/srv/www/www.domain.com/logs/github.txt', $e . ' ' . $payload, FILE_APPEND);
+	file_put_contents('/home/risingth/public_html/rising5th/mage/github.txt', $e . ' ' . $payload, FILE_APPEND);
 
 	  exit(0);
 }
 
 if ($payload->ref === 'refs/heads/master') {
 
-	$project_directory = '/srv/www/www.domain.com/public_html/';
+	$project_directory = '/home/risingth/public_html/rising5th/mage';
 
-	$output = shell_exec("/srv/www/www.domain.com/public_html/git-puller.sh");
+	$output = shell_exec("/home/risingth/public_html/rising5th/mage/git-puller.sh");
 
 	//log the request
-	file_put_contents('/srv/www/www.domain.com/logs/github.txt', $output, FILE_APPEND);
+	file_put_contents('/home/risingth/public_html/rising5th/mage/github.txt', $output, FILE_APPEND);
 
 }
 ?>
