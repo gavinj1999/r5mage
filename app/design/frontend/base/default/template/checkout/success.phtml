@@ -63,3 +63,28 @@
 <div class="buttons-set">
     <button type="button" class="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue Shopping')) ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
 </div>
+<?php
+  $orderId = $this->getOrderId();
+  
+  $order = Mage::getModel('sales/order')->loadByIncrementId($orderId);
+  $orderValue = $order['grand_total'];
+  $currency = $order['base_currency_code'];
+  $orderCount = $order['total_item_count'];
+  $couponCode = $order['coupon_code'];
+  ?>
+
+<script type="text/javascript">
+(function() {
+    adrecord = {
+        "programID": "<?php if ( ICL_LANGUAGE_CODE=='se' ) { echo '767'; }
+  elseif ( ICL_LANGUAGE_CODE=='no' ) { echo '768'; }
+  elseif ( ICL_LANGUAGE_CODE=='dk' ) { echo '769'; }
+  elseif ( ICL_LANGUAGE_CODE=='fi' ) { echo '770'; } ?>",
+        "orderID": "<?php echo $orderId;?>",
+        "orderValue": "<?php echo $orderValue = round($order['grand_total'] * 100); ?>",
+        "couponCode": "<?php echo $couponCode; ?>"
+    }
+    var e=document.createElement('script'); e.src=document.location.protocol + '//track.adrecord.com/track.js';
+    var s=document.getElementsByTagName('body')[0]; s.appendChild(e);
+})();
+</script>
