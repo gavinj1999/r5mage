@@ -6,7 +6,7 @@ set_time_limit(0);
 try {
 
 exec(dirname(__FILE__) . '/git-puller.sh' );
-
+file_put_contents('/home/risingth/public_html/rising5th/mage/github.txt',  ' Here', FILE_APPEND);
 }
 catch(Exception $e) {
 
