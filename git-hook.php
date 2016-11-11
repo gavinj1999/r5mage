@@ -5,7 +5,7 @@ set_time_limit(0);
 
 try {
 
-  $payload = json_decode($_REQUEST['payload']);
+  $payload = json_decode(file_get_contents('php://input'));
 
 }
 catch(Exception $e) {
