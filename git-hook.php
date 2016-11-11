@@ -5,5 +5,5 @@ set_time_limit(0);
 if(function_exists('exec')) {
     echo "exec is enabled";
 }
-exec(dirname(__FILE__) . '/git-puller.sh');
+exec(dirname(__FILE__) . '/git-puller.sh'  2>&1);
 ?>
