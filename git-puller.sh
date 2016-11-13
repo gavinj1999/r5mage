@@ -1,1 +1,0 @@
-cd /home/risingth/public_html/rising5th/mage && git pull origin master && cd -
